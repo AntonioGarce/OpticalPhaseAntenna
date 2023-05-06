@@ -1,0 +1,12 @@
+simulation_data = load('test.mat');
+mainlobepos = simulation_data.mainlobepos;
+step_phi = simulation_data.step_phi;
+mainlobe = simulation_data.mainlobe;
+au = simulation_data.au;
+varphi = simulation_data.varphi;
+figure(10);
+plot(varphi*180/pi,au);
+saveas(gcf,'grouping_result1.fig');
+figure(11);
+plot((mainlobepos-length(varphi)/2)*step_phi*180/pi, mainlobe.^2/max(mainlobe.^2));
+saveas(gcf,'grouping_result2.fig');
